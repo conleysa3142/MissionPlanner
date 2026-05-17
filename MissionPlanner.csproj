@@ -5,7 +5,7 @@
     <OutputType>Exe</OutputType>
     <StartupObject>MissionPlanner.Program</StartupObject>
     <Authors>Michael Oborne</Authors>
-    <Version>1.3.83</Version>
+    <Version>1.3.81</Version>
     <Company>Michael Oborne</Company>
     <Product>Mission Planner</Product>
     <Description>Mission Planner ground control station for ardupilot</Description>
@@ -32,12 +32,10 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
 		<Deterministic>False</Deterministic>
 		<PlatformTarget>AnyCPU</PlatformTarget>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-		<BaseIntermediateOutputPath>obj3\</BaseIntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <OutputPath>bin\Debug\net461\</OutputPath>
@@ -57,8 +55,6 @@
     <Compile Remove="ExtLibs\**" />
     <Compile Remove="MissionPlannerTests\**" />
     <Compile Remove="Msi\**" />
-    <Compile Remove="obj2\**" />
-    <Compile Remove="obj\**" />
     <Compile Remove="plugins\**" />
     <Compile Remove="resedit\**" />
     <Compile Remove="SikRadio\**" />
@@ -68,8 +64,6 @@
     <EmbeddedResource Remove="ExtLibs\**" />
     <EmbeddedResource Remove="MissionPlannerTests\**" />
     <EmbeddedResource Remove="Msi\**" />
-    <EmbeddedResource Remove="obj2\**" />
-    <EmbeddedResource Remove="obj\**" />
     <EmbeddedResource Remove="plugins\**" />
     <EmbeddedResource Remove="resedit\**" />
     <EmbeddedResource Remove="SikRadio\**" />
@@ -79,8 +73,6 @@
     <None Remove="ExtLibs\**" />
     <None Remove="MissionPlannerTests\**" />
     <None Remove="Msi\**" />
-    <None Remove="obj2\**" />
-    <None Remove="obj\**" />
     <None Remove="plugins\**" />
     <None Remove="resedit\**" />
     <None Remove="SikRadio\**" />
@@ -98,9 +90,6 @@
       <HintPath>.\extlibs\BitMiracle.LibTiff.NetStandard.dll</HintPath>
       <Private>true</Private>
     </Reference>
-    <Reference Include="GDAL.NET">
-      <HintPath>ExtLibs\GDAL\bin\Debug\net472\GDAL.NET.dll</HintPath>
-    </Reference>
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.IO.Compression">
@@ -111,6 +100,7 @@
     </Reference>
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Speech" />
+    <Reference Include="System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="Updater, Version=1.0.7056.19890, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>Updater\bin\Release\Updater.exe</HintPath>
@@ -190,8 +180,8 @@
       <Version>1.2.0</Version>
     </PackageReference>
     <PackageReference Include="CSMatIO" version="1.0.20" targetFramework="netstandard2.0" requireReinstallation="true" />
-    <PackageReference Include="DotNetZip.NetStandard">
-      <Version>1.12.0</Version>
+    <PackageReference Include="DotNetZip">
+      <Version>1.16.0</Version>
     </PackageReference>
     <PackageReference Include="Flurl" version="3.0.2" targetFramework="net462" />
     <PackageReference Include="Flurl.Http" version="3.2.0" targetFramework="net462" />
@@ -1187,9 +1177,6 @@
 
   </ItemGroup>
   <ItemGroup>
-    <None Include="plugins\AnonymizeBinlogPlugin.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <Compile Include="SikRadio\ISikRadioForm.cs" />
     <Compile Include="SikRadio\RFD900.cs" />
     <Compile Include="SikRadio\RFDLib\Array.cs" />
